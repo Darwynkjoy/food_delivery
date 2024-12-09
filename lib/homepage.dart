@@ -7,7 +7,7 @@ class Homepage extends StatelessWidget{
     List<Map> Data=[
       {
         "type":"Food",
-        "image":"assets/images/salad.png",
+        "image":"assets/images/avacado.png",
         "name":"Avacado Salad",
         
       },
@@ -18,12 +18,12 @@ class Homepage extends StatelessWidget{
       },
       {
         "type":"Vegetables",
-        "image":"assets/images/salad.png",
+        "image":"assets/images/double burger.png",
         "name":"Burger",
       },
       {
         "type":"Grocery",
-        "image":"assets/images/salad.png",
+        "image":"assets/images/fruitssalad.png",
         "name":"Fruits Salad ",
       }
     ];
