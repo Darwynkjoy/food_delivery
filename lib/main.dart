@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/homepage.dart';
-import 'package:fooddeliveryapp/welcomepage.dart';
+import 'package:fooddeliveryapp/productpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: Productpage(),
     );
   }
 }

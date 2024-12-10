@@ -169,7 +169,6 @@ class Homepage extends StatelessWidget{
                 );
               }),
             ),
-            Center(child: FloatingActionButton(backgroundColor: Colors.green,onPressed: (){},child: Icon(Icons.shopping_cart,color: Colors.white,),))
             ],
         ),
       ),
@@ -181,6 +180,7 @@ class Homepage extends StatelessWidget{
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home,size: 30,),label: "",),
           BottomNavigationBarItem(icon: Icon(Icons.textsms,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,size: 30,),label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.notifications,size: 30,),label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.favorite_border_outlined,size: 30,),label: ""),
         ]),
