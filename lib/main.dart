@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/cartpage.dart';
 import 'package:fooddeliveryapp/homepage.dart';
 import 'package:fooddeliveryapp/productpage.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: Productpage(),
+      home: Cartpage(),
     );
   }
 }
