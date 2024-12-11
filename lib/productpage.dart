@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/homepage.dart';
 
 class Productpage extends StatelessWidget{
-  const Productpage({super.key});
+  String? image;
+  String? name;
+  String? price;
+  String? rating;
+  String? calorie;
+  String? time;
+  Productpage({super.key,required this.image,required this.name,required this.price,required this.rating,required this.calorie,required this.time});
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -14,12 +21,17 @@ class Productpage extends StatelessWidget{
               padding: const EdgeInsets.only(left: 30.0,top: 15),
               child: Row(
                 children: [
-                  Container(padding: EdgeInsets.only(left: 10),
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: const Color.fromARGB(57, 255, 255, 255)),
-                    child: Center(child: Icon(Icons.arrow_back_ios,color: Colors.white,)),
-                    ),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context,MaterialPageRoute(builder: (context)=>Homepage()));
+                    },
+                    child: Container(padding: EdgeInsets.only(left: 10),
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: const Color.fromARGB(57, 255, 255, 255)),
+                      child: Center(child: Icon(Icons.arrow_back_ios,color: Colors.white,)),
+                      ),
+                  ),
                     
                   SizedBox(width: 85,),
                     
@@ -49,7 +61,7 @@ class Productpage extends StatelessWidget{
               child: Container(
                 height: 350,
                 width: 350,
-                decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/avacado.png"))),
+                decoration: BoxDecoration(image: DecorationImage(image: AssetImage(image!))),
                 ),
               ),
           Positioned(
@@ -67,7 +79,7 @@ class Productpage extends StatelessWidget{
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Avacado Salad",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.black),),
+                          Text(name!,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.black),),
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
                             child: Container(padding: EdgeInsets.only(left: 30),
@@ -85,20 +97,20 @@ class Productpage extends StatelessWidget{
                           ),
                         ],
                       ),
-                      Text("\$15.00",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
+                      Text(price!,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
                       
                       SizedBox(height: 20,),
 
                       Row(
                         children: [
                           Icon(Icons.star,color: Colors.amber,),
-                          Text("4.5",style: TextStyle(fontSize: 20,color: Colors.grey),),
+                          Text(rating!,style: TextStyle(fontSize: 20,color: Colors.grey),),
                           SizedBox(width: 70,),
                           Icon(Icons.bloodtype,color: Colors.red,),
-                          Text("100 Kcal",style: TextStyle(fontSize: 20,color: Colors.grey),),
+                          Text(calorie!,style: TextStyle(fontSize: 20,color: Colors.grey),),
                           SizedBox(width: 70,),
                           Icon(Icons.lock_clock,color: Colors.amber,),
-                          Text("20min",style: TextStyle(fontSize: 20,color: Colors.grey),)
+                          Text(time!,style: TextStyle(fontSize: 20,color: Colors.grey),)
                         ],
                       ),
 

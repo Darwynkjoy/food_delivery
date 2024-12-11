@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/homepage.dart';
 
 class Welcomepage extends StatelessWidget{
   const Welcomepage({super.key});
@@ -39,7 +40,10 @@ class Welcomepage extends StatelessWidget{
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
               ),
-              onPressed: (){}, child: Text("Lets Explore",style: TextStyle(fontSize: 25,color: Colors.green),)))
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
+              },
+              child: Text("Lets Explore",style: TextStyle(fontSize: 25,color: Colors.green),)))
           ],
         ),
       ),

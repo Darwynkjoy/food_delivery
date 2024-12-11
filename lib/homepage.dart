@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/productpage.dart';
+import 'package:fooddeliveryapp/welcomepage.dart';
 
 class Homepage extends StatelessWidget{
   const Homepage({super.key});
@@ -9,22 +11,38 @@ class Homepage extends StatelessWidget{
         "type":"Food",
         "image":"assets/images/avacado.png",
         "name":"Avacado Salad",
+        "price":"\$50.00",
+        "time":"20min",
+        "rating":"4.0",
+        "calorie":"270Kcal"
         
       },
       {
         "type":"Fruits",
         "image":"assets/images/salad.png",
         "name":"Ceaser Salad",
+        "price":"\$56.50",
+        "time":"13min",
+        "rating":"4.4",
+        "calorie":"470Kcal"
       },
       {
         "type":"Vegetables",
         "image":"assets/images/double burger.png",
         "name":"Burger",
+        "price":"\$51.00",
+        "time":"24min",
+        "rating":"3.9",
+        "calorie":"440Kcal"
       },
       {
         "type":"Grocery",
         "image":"assets/images/fruitssalad.png",
         "name":"Fruits Salad ",
+        "price":"\$45.00",
+        "time":"15min",
+        "rating":"4.8",
+        "calorie":"300Kcal"
       }
     ];
     return Scaffold(
@@ -49,10 +67,15 @@ class Homepage extends StatelessWidget{
 
                 SizedBox(width: 85,),
 
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),image: DecorationImage(image: AssetImage("assets/images/hussein.jpg"),fit: BoxFit.cover)),
+                GestureDetector(
+                  onTap:(){
+                    Navigator.pop(context,MaterialPageRoute(builder: (context)=>Welcomepage()));
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),image: DecorationImage(image: AssetImage("assets/images/hussein.jpg"),fit: BoxFit.cover)),
+                  ),
                 ),
               ],
             ),
@@ -122,10 +145,22 @@ class Homepage extends StatelessWidget{
                          ),
                        ),
                       Center(
-                        child: Container(
-                          height: 120,
-                          width: 120,
-                          child: Image(image: AssetImage(Data[index]["image"]))),
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Productpage(
+                              image:Data[index]["image"],
+                              name: Data[index]["name"],
+                              price: Data[index]["price"],
+                              rating: Data[index]["rating"],
+                              calorie: Data[index]["calorie"],
+                              time: Data[index]["time"],
+                            )));
+                          },
+                          child: Container(
+                            height: 120,
+                            width: 120,
+                            child: Image(image: AssetImage(Data[index]["image"]))),
+                        ),
                       ),
                         Center(child: Text(Data[index]["name"],style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)),
 
@@ -133,12 +168,12 @@ class Homepage extends StatelessWidget{
                         padding: const EdgeInsets.only(left: 15.0,right: 15),
                         child: Row(
                           children: [
-                            Text("20 min",style: TextStyle(fontSize: 16,color: Colors.grey,fontWeight: FontWeight.bold),),
+                            Text(Data[index]["time"],style: TextStyle(fontSize: 16,color: Colors.grey,fontWeight: FontWeight.bold),),
                             
                             SizedBox(width: 50,),
                         
                             Icon(Icons.star,color: Colors.amber,),
-                            Text("4.5",style: TextStyle(fontSize: 16,color: Colors.grey,fontWeight: FontWeight.bold),),
+                            Text(Data[index]["rating"],style: TextStyle(fontSize: 16,color: Colors.grey,fontWeight: FontWeight.bold),),
                           ],
                         ),
                       ),
@@ -147,7 +182,7 @@ class Homepage extends StatelessWidget{
                         padding: const EdgeInsets.only(left: 15.0),
                         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("rs:50.00",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),
+                            Text(Data[index]["price"],style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),
                         
                             Column(
                               children: [
@@ -156,7 +191,7 @@ class Homepage extends StatelessWidget{
                                   height: 50,
                                   width: 50,
                                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Color.fromARGB(255, 0, 180, 6),),
-                                  child: Center(child: Text("+",style:TextStyle(fontSize: 40,color: Colors.white,))),
+                                  child: Center(child: Text("+",style:TextStyle(fontSize: 35,color: Colors.white,))),
                                   ),
                               ],
                             ),
@@ -178,11 +213,11 @@ class Homepage extends StatelessWidget{
         selectedItemColor: Color.fromARGB(255, 0, 180, 6),
         unselectedIconTheme: IconThemeData(color: Colors.black),
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home,size: 30,),label: "",),
-          BottomNavigationBarItem(icon: Icon(Icons.textsms,size: 30,),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,size: 30,),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications,size: 30,),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite_border_outlined,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: IconButton(onPressed: (){}, icon: Icon(Icons.home,size: 30,)),label: ""),
+          BottomNavigationBarItem(icon: IconButton(onPressed: (){}, icon: Icon(Icons.sms,size: 30,)),label: ""),
+          BottomNavigationBarItem(icon: IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart,size: 30,)),label: ""),
+          BottomNavigationBarItem(icon: IconButton(onPressed: (){}, icon: Icon(Icons.notifications,size: 30,)),label: ""),
+          BottomNavigationBarItem(icon: IconButton(onPressed: (){}, icon: Icon(Icons.favorite,size: 30,)),label: ""),
         ]),
     );
   }
