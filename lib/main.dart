@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fooddeliveryapp/cartpage.dart';
 import 'package:fooddeliveryapp/welcomepage.dart';
 
 void main() {
