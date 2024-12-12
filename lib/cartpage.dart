@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/productpage.dart';
 
 class Cartpage extends StatefulWidget{
   @override
@@ -16,13 +17,18 @@ class _CartpageState extends State<Cartpage>{
           children: [
             Row(
               children: [
-                Container(
-                  padding: EdgeInsets.only(left: 10),
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Color.fromARGB(255, 0, 180, 6),),
-                  child: Center(child: Icon(Icons.arrow_back_ios,color: Colors.white,)),
-                  ),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context,MaterialPageRoute(builder: (context)=>Productpage()))
+                  },
+                  child: Container(
+                    padding: EdgeInsets.only(left: 10),
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Color.fromARGB(255, 0, 180, 6),),
+                    child: Center(child: Icon(Icons.arrow_back_ios,color: Colors.white,)),
+                    ),
+                ),
                   
                 SizedBox(width: 99,),
                   
