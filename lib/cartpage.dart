@@ -19,7 +19,7 @@ class _CartpageState extends State<Cartpage>{
               children: [
                 GestureDetector(
                   onTap: (){
-                    Navigator.pop(context,MaterialPageRoute(builder: (context)=>Productpage()))
+
                   },
                   child: Container(
                     padding: EdgeInsets.only(left: 10),
