@@ -128,15 +128,15 @@ class Productpage extends StatefulWidget{
 
                       SizedBox(height: 15,),
 
-                      Text('''kjwqgf lqwkjf kiwj lqwkjef hwjhf wlkfejhg wkj wkejfg loqiuegf bqlwekj bj jgwi jhgaqs jqhsd''',style: TextStyle(fontSize: 17,color: Colors.grey),),
+                      Text('''kjwqgf lqwkjf kiwj lqwkjef hwjhf wlkfejhg wkj wkejfg loqiuegf bqlwekj bj jgwi jhgaqs jqhsd''',style: TextStyle(fontSize: 18,color: Colors.grey),),
                       Row(
                         children: [
-                          Text('''lqw lqkwjhfg kjwqehfg...''',style: TextStyle(fontSize: 17,color: Colors.grey),),
+                          Text('''lqw lqkwjhfg kjwqehfg...''',style: TextStyle(fontSize: 18,color: Colors.grey),),
                           TextButton(onPressed: (){}, child: Text("ReadMore",style: TextStyle(fontSize: 18,color: Color.fromARGB(255, 0, 180, 6),),))
                         ],
                       ),
 
-                      SizedBox(height: 60,),
+                      SizedBox(height: 80,),
 
                       Center(
                         child: SizedBox(
