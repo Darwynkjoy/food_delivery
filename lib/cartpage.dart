@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/productpage.dart';
 import 'package:fooddeliveryapp/productpageprovider.dart';
 import 'package:provider/provider.dart';
 
 class Cartpage extends StatefulWidget{
+  String? image;
+  String? name;
+  String? price;
+  String? rating;
+  String? time;
+  String? calorie;
+  Cartpage({super.key,required this.name,required this.image,required this.price,required this.rating,required this.time,required this.calorie});
   @override
   State<Cartpage> createState()=> _CartpageState();
 }
@@ -21,7 +29,7 @@ class _CartpageState extends State<Cartpage>{
               children: [
                 GestureDetector(
                   onTap: () {
-                    //Navigator.pop(context,MaterialPageRoute(builder: (context)=>Productpage(image: image, name: name, price: price, rating: rating, calorie: calorie, time: time)))
+                    Navigator.pop(context,MaterialPageRoute(builder: (context)=>Productpage(image: widget.image, name: widget.name, price: widget.price, rating: widget.rating,calorie: widget.calorie, time: widget.time)));
                   },
                   child: Container(
                     padding: EdgeInsets.only(left: 10),
@@ -55,7 +63,7 @@ class _CartpageState extends State<Cartpage>{
                           Container(
                             height: 110,
                             width: 110,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),image: DecorationImage(image: AssetImage("assets/images/avacado.png"),fit: BoxFit.cover)),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),image: DecorationImage(image: AssetImage("${widget.image}"),fit: BoxFit.cover)),
                           ),
                           Container(
                             height: 100,
@@ -63,24 +71,24 @@ class _CartpageState extends State<Cartpage>{
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Avacado Salad",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                                Text("${widget.name}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
                                 Row(
                                   children: [
-                                    Text("20min",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black),),
+                                    Text("${widget.time}",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black),),
 
                                     SizedBox(width: 10,),
 
                                     Icon(Icons.star,color: Colors.amber,size: 20,),
-                                    Text("4.5",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black),),
+                                    Text("${widget.rating}",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black),),
                                   ],
                                 ),
                                 SizedBox(height: 20,),
-                                Text("\$50.00",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),),),
+                                Text("${widget.price}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),),),
                               ],
                             ),
                           ),
 
-                          SizedBox(width: 5,),
+                          SizedBox(width: 15,),
 
                           Container(
                             height: 45,

@@ -148,7 +148,7 @@ class Productpage extends StatefulWidget{
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
                             ),
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage()),);
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage(name: widget.name, image: widget.image, price: widget.price, rating: widget.rating, time: widget.time,calorie: widget.calorie,)),);
                             },
                             child: Text("Add to cart",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),)),
                         ),
