@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/productpageprovider.dart';
+import 'package:provider/provider.dart';
 
 class Cartpage extends StatefulWidget{
   @override
@@ -8,6 +10,7 @@ class Cartpage extends StatefulWidget{
 class _CartpageState extends State<Cartpage>{
   @override
   Widget build(BuildContext context){
+    final counter=Provider.of<Productpageprovider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -17,8 +20,8 @@ class _CartpageState extends State<Cartpage>{
             Row(
               children: [
                 GestureDetector(
-                  onTap: (){
-
+                  onTap: () {
+                    //Navigator.pop(context,MaterialPageRoute(builder: (context)=>Productpage(image: image, name: name, price: price, rating: rating, calorie: calorie, time: time)))
                   },
                   child: Container(
                     padding: EdgeInsets.only(left: 10),
@@ -32,7 +35,6 @@ class _CartpageState extends State<Cartpage>{
                 SizedBox(width: 99,),
                   
                 Text("Your Cart",style: TextStyle(fontSize: 24,color: Colors.grey,fontWeight: FontWeight.bold),),
-
                 ],
               ),
 
@@ -78,7 +80,7 @@ class _CartpageState extends State<Cartpage>{
                             ),
                           ),
 
-                          SizedBox(width: 35,),
+                          SizedBox(width: 5,),
 
                           Container(
                             height: 45,
@@ -90,7 +92,7 @@ class _CartpageState extends State<Cartpage>{
                     );},
                   separatorBuilder: (context,index){
                     return SizedBox(height: 15,);},
-                  itemCount: 4),
+                  itemCount: counter.count),
                 ),
                 Text("- - - - - - - - - - - - - - - - - - - - - - - -",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500,color: Color.fromARGB(255, 0, 180, 6),),),
                 Container(
@@ -102,14 +104,14 @@ class _CartpageState extends State<Cartpage>{
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Food Price",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
-                          Text("\$12.62",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("Purchace Amount",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("\$200.00",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Delivery charges",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("Delivery Charges",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                           Text("\$49.00",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                         ],
                       ),
@@ -117,32 +119,34 @@ class _CartpageState extends State<Cartpage>{
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Taxes",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
-                          Text("\$12.62",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("\$13.78",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                         ],
                       ),
-                    ],
+                      ],
                   ),
                 ),
                 Text("- - - - - - - - - - - - - - - - - - - - - - - -",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500,color: Color.fromARGB(255, 0, 180, 6),),),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Taxes",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
-                    Text("\$12.62",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
+                    Text("Total Amount",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),),),
+                    Text("\$13.78",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
                       ],
-                    ),
-                
+                ),
+
                 SizedBox(height: 30,),
 
                 SizedBox(
-                  height: 70,
+                  height: 60,
                   width: 400,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                       backgroundColor: Color.fromARGB(255, 0, 180, 6),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                     ),
-                    onPressed: (){}, child: Text("Checkout",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white)),)),
+                  onPressed: (){},
+                  child: Text("Checkout",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),)),
+                )
           ],
         ),
       ),

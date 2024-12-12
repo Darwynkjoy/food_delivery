@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/productpage.dart';
 import 'package:fooddeliveryapp/welcomepage.dart';
 
-class Homepage extends StatelessWidget{
-  const Homepage({super.key});
+class Homepage extends StatefulWidget{
+  Homepage({super.key});
+  @override
+  State<Homepage> createState()=> _HomepageState();
+}
+
+class _HomepageState extends State<Homepage>{
   @override
   Widget build(BuildContext context){
     List<Map> Data=[
