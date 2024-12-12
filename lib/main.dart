@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'delivery app',
       debugShowCheckedModeBanner: false,
-      home: Cartpage()
+      home: Welcomepage()
     );
   }
 }

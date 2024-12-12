@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/cartpage.dart';
 import 'package:fooddeliveryapp/homepage.dart';
 
 class Productpage extends StatelessWidget{
@@ -139,7 +140,10 @@ class Productpage extends StatelessWidget{
                               backgroundColor: Color.fromARGB(255, 0, 180, 6),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
                             ),
-                            onPressed: (){}, child: Text("Add to cart",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),)),
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage()),);
+                            },
+                            child: Text("Add to cart",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),)),
                         ),
                       )
                     ],
