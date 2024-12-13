@@ -83,7 +83,7 @@ class _CartpageState extends State<Cartpage>{
                                   ],
                                 ),
                                 SizedBox(height: 20,),
-                                Text("${widget.price}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),),),
+                                Text("\$${widget.price}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),),),
                               ],
                             ),
                           ),

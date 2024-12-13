@@ -105,7 +105,7 @@ class Productpage extends StatefulWidget{
                           ),
                         ],
                       ),
-                      Text(widget.price!,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
+                      Text("\$${widget.price!}",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
                       
                       SizedBox(height: 20,),
 

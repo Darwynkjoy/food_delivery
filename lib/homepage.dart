@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/productpage.dart';
+import 'package:fooddeliveryapp/productpageprovider.dart';
 import 'package:fooddeliveryapp/welcomepage.dart';
+import 'package:provider/provider.dart';
 
 class Homepage extends StatefulWidget{
   Homepage({super.key});
@@ -11,45 +13,7 @@ class Homepage extends StatefulWidget{
 class _HomepageState extends State<Homepage>{
   @override
   Widget build(BuildContext context){
-    List<Map> Data=[
-      {
-        "type":"Food",
-        "image":"assets/images/avacado.png",
-        "name":"Avacado Salad",
-        "price":"\$50.00",
-        "time":"20min",
-        "rating":"4.0",
-        "calorie":"270Kcal"
-        
-      },
-      {
-        "type":"Fruits",
-        "image":"assets/images/salad.png",
-        "name":"Ceaser Salad",
-        "price":"\$56.50",
-        "time":"13min",
-        "rating":"4.4",
-        "calorie":"470Kcal"
-      },
-      {
-        "type":"Vegetables",
-        "image":"assets/images/double burger.png",
-        "name":"Burger",
-        "price":"\$51.00",
-        "time":"24min",
-        "rating":"3.9",
-        "calorie":"440Kcal"
-      },
-      {
-        "type":"Grocery",
-        "image":"assets/images/fruitssalad.png",
-        "name":"Fruits Salad ",
-        "price":"\$45.00",
-        "time":"15min",
-        "rating":"4.8",
-        "calorie":"300Kcal"
-      }
-    ];
+    final storage=Provider.of<Productpageprovider>(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -124,7 +88,7 @@ class _HomepageState extends State<Homepage>{
                 itemBuilder: (context,index){
                 return Container(
                   height: 20,
-                  child: Text(Data[index]["type"],style: TextStyle(fontSize: 23,color: Colors.grey,fontWeight: FontWeight.bold),),
+                  child: Text(storage.Data[index]["type"],style: TextStyle(fontSize: 23,color: Colors.grey,fontWeight: FontWeight.bold),),
                 );
               },
               separatorBuilder: (context,index){
@@ -153,32 +117,32 @@ class _HomepageState extends State<Homepage>{
                         child: GestureDetector(
                           onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>Productpage(
-                              image:Data[index]["image"],
-                              name: Data[index]["name"],
-                              price: Data[index]["price"],
-                              rating: Data[index]["rating"],
-                              calorie: Data[index]["calorie"],
-                              time: Data[index]["time"],
+                              image:storage. Data[index]["image"],
+                              name:storage.  Data[index]["name"],
+                              price:storage.  Data[index]["price"],
+                              rating:storage.  Data[index]["rating"],
+                              calorie:storage.  Data[index]["calorie"],
+                              time:storage.  Data[index]["time"],
                             )));
                           },
                           child: Container(
                             height: 120,
                             width: 120,
-                            child: Image(image: AssetImage(Data[index]["image"]))),
+                            child: Image(image: AssetImage(storage. Data[index]["image"]))),
                         ),
                       ),
-                        Center(child: Text(Data[index]["name"],style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)),
+                        Center(child: Text(storage.Data[index]["name"],style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)),
 
                       Padding(
                         padding: const EdgeInsets.only(left: 15.0,right: 15),
                         child: Row(
                           children: [
-                            Text(Data[index]["time"],style: TextStyle(fontSize: 16,color: Colors.grey,fontWeight: FontWeight.bold),),
+                            Text(storage. Data[index]["time"],style: TextStyle(fontSize: 16,color: Colors.grey,fontWeight: FontWeight.bold),),
                             
                             SizedBox(width: 50,),
                         
                             Icon(Icons.star,color: Colors.amber,),
-                            Text(Data[index]["rating"],style: TextStyle(fontSize: 16,color: Colors.grey,fontWeight: FontWeight.bold),),
+                            Text(storage. Data[index]["rating"],style: TextStyle(fontSize: 16,color: Colors.grey,fontWeight: FontWeight.bold),),
                           ],
                         ),
                       ),
@@ -187,7 +151,7 @@ class _HomepageState extends State<Homepage>{
                         padding: const EdgeInsets.only(left: 15.0),
                         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(Data[index]["price"],style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),
+                            Text("\$${storage. Data[index]["price"]}",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),
                         
                             Column(
                               children: [
