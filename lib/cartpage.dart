@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/productpage.dart';
 import 'package:fooddeliveryapp/productpageprovider.dart';
@@ -12,7 +10,9 @@ class Cartpage extends StatefulWidget{
   String? rating;
   String? time;
   String? calorie;
-  Cartpage({super.key,required this.name,required this.image,required this.price,required this.rating,required this.time,required this.calorie});
+  String? nPrice;
+  String? nTax;
+  Cartpage({super.key,required this.name,required this.image,required this.price,required this.rating,required this.time,required this.calorie,required this.nPrice,required this.nTax});
   @override
   State<Cartpage> createState()=> _CartpageState();
 }
@@ -21,10 +21,6 @@ class _CartpageState extends State<Cartpage>{
   @override
   Widget build(BuildContext context){
     final counter=Provider.of<Productpageprovider>(context);
-    Double? ans;
-    Double? Price(Double ans){
-      widget.price!*counter.count;
-    }
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -96,11 +92,14 @@ class _CartpageState extends State<Cartpage>{
 
                           SizedBox(width: 15,),
 
-                          Container(
-                            height: 45,
-                            width: 45,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Color.fromARGB(255, 0, 180, 6),),
-                            child: Center(child: Icon(Icons.delete_outline,color: Colors.white,size: 30,))),
+                          GestureDetector(
+                            
+                            child: Container(
+                              height: 45,
+                              width: 45,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Color.fromARGB(255, 0, 180, 6),),
+                              child: Center(child: Icon(Icons.delete_outline,color: Colors.white,size: 30,))),
+                          ),
                         ],
                       ),
                     );},
@@ -119,21 +118,21 @@ class _CartpageState extends State<Cartpage>{
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Purchace Amount",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
-                          Text("${widget.price}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("${widget.price}*${counter.count}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Delivery Charges",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
-                          Text("\$49.00",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("\$12.00",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Taxes",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
-                          Text("\$13.78",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("\$${widget.nTax}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                         ],
                       ),
                       ],
@@ -144,7 +143,7 @@ class _CartpageState extends State<Cartpage>{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Total Amount",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),),),
-                    Text("\$13.78",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
+                    Text("\$${widget.nPrice}",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 180, 6),)),
                       ],
                 ),
 

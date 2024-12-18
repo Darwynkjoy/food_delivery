@@ -18,6 +18,24 @@ class Productpage extends StatefulWidget{
   @override
   Widget build(BuildContext context){
     final Counter=Provider.of<Productpageprovider>(context);
+
+    String Amount=widget.price.toString();
+    double newAmount=double.parse(Amount);
+    double aTax=newAmount/10*Counter.count;
+    double dCharge=12.00;
+
+    String taxPrice(){
+      double newtax=newAmount/10*Counter.count;
+      String nTax=newtax.toString();
+      return nTax;
+    }
+
+    String itemprice(){
+      double newPrice=newAmount*Counter.count+dCharge+aTax;
+      String nPrice=newPrice.toString();
+      return nPrice;
+
+    }
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 0, 180, 6),
       body: Stack(
@@ -52,7 +70,7 @@ class Productpage extends StatefulWidget{
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: const Color.fromARGB(57, 255, 255, 255)),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage(name: widget.name, image: widget.image, price: widget.price, rating: widget.rating, time: widget.time,calorie: widget.calorie,)),);
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage(name: widget.name, image: widget.image, price: widget.price, rating: widget.rating, time: widget.time,calorie: widget.calorie,nPrice: itemprice(),nTax: taxPrice(),)),);
                       },
                       child: Icon(Icons.shopping_cart_outlined,color:  Colors.white,)),
                     ),
@@ -151,8 +169,7 @@ class Productpage extends StatefulWidget{
                               backgroundColor: Color.fromARGB(255, 0, 180, 6),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
                             ),
-                            onPressed: (){
-                            },
+                            onPressed: (){},
                             child: Text("Add to cart",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),)),
                         ),
                       )
