@@ -52,4 +52,5 @@ class Productpageprovider extends ChangeNotifier{
     _count--;
     notifyListeners();
   }
+  
 }

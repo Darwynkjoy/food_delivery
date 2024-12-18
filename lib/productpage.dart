@@ -50,7 +50,11 @@ class Productpage extends StatefulWidget{
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: const Color.fromARGB(57, 255, 255, 255)),
-                    child: Icon(Icons.favorite_border,color: Colors.white,),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage(name: widget.name, image: widget.image, price: widget.price, rating: widget.rating, time: widget.time,calorie: widget.calorie,)),);
+                      },
+                      child: Icon(Icons.shopping_cart_outlined,color:  Colors.white,)),
                     ),
                   ],
                 ),
@@ -148,7 +152,6 @@ class Productpage extends StatefulWidget{
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
                             ),
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage(name: widget.name, image: widget.image, price: widget.price, rating: widget.rating, time: widget.time,calorie: widget.calorie,)),);
                             },
                             child: Text("Add to cart",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),)),
                         ),

@@ -19,6 +19,9 @@ class _CartpageState extends State<Cartpage>{
   @override
   Widget build(BuildContext context){
     final counter=Provider.of<Productpageprovider>(context);
+    void Price(){
+      widget.price!*counter.count;
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -113,7 +116,7 @@ class _CartpageState extends State<Cartpage>{
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Purchace Amount",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
-                          Text("\$200.00",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("${widget.price}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                         ],
                       ),
                       Row(
