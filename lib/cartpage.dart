@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/productpage.dart';
 import 'package:fooddeliveryapp/productpageprovider.dart';
@@ -19,7 +21,8 @@ class _CartpageState extends State<Cartpage>{
   @override
   Widget build(BuildContext context){
     final counter=Provider.of<Productpageprovider>(context);
-    void Price(){
+    Double? ans;
+    Double? Price(Double ans){
       widget.price!*counter.count;
     }
     return Scaffold(
