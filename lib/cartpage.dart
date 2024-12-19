@@ -98,14 +98,14 @@ class _CartpageState extends State<Cartpage>{
                               height: 45,
                               width: 45,
                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Color.fromARGB(255, 0, 180, 6),),
-                              child: Center(child: Icon(Icons.delete_outline,color: Colors.white,size: 30,))),
+                              child: Center(child: Text("${counter.count}",style: TextStyle(color: Colors.white,fontSize: 25),))),
                           ),
                         ],
                       ),
                     );},
                   separatorBuilder: (context,index){
                     return SizedBox(height: 15,);},
-                  itemCount: counter.count),
+                  itemCount: 1),
                 ),
                 Text("- - - - - - - - - - - - - - - - - - - - - - - -",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500,color: Color.fromARGB(255, 0, 180, 6),),),
                 Container(
@@ -118,7 +118,7 @@ class _CartpageState extends State<Cartpage>{
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Purchace Amount",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
-                          Text("${widget.price}*${counter.count}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
+                          Text("\$${widget.price}*${counter.count}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey),),
                         ],
                       ),
                       Row(
